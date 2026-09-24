@@ -255,5 +255,1231 @@ nav a:hover{
     transform:translateY(5px);
 
     box-shadow:
-        0
+        0 2px 0 #008451,
+        0 10px 20px rgba(0,255,157,.3);
+}
+
+.secondary{
+    padding:17px 30px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    border:1px solid rgba(255,255,255,.2);
+
+    backdrop-filter:blur(10px);
+}
+
+/* =========================
+   5D CORE
+========================= */
+
+.core-container{
+    width:450px;
+    height:450px;
+
+    position:relative;
+
+    perspective:1200px;
+
+    transform-style:preserve-3d;
+}
+
+.core{
+    position:absolute;
+
+    width:230px;
+    height:230px;
+
+    left:110px;
+    top:110px;
+
+    transform-style:preserve-3d;
+
+    animation:coreRotate 12s linear infinite;
+}
+
+@keyframes coreRotate{
+
+    0%{
+        transform:
+            rotateX(0deg)
+            rotateY(0deg)
+            rotateZ(0deg);
+    }
+
+    100%{
+        transform:
+            rotateX(360deg)
+            rotateY(360deg)
+            rotateZ(360deg);
+    }
+}
+
+.core-face{
+    position:absolute;
+
+    width:230px;
+    height:230px;
+
+    border:2px solid var(--green);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,255,157,.12),
+            rgba(0,0,0,.4)
+        );
+
+    box-shadow:
+        inset 0 0 40px rgba(0,255,157,.12),
+        0 0 30px rgba(0,255,157,.15);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    backdrop-filter:blur(4px);
+}
+
+.core-face::after{
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+    height:100px;
+
+    border-radius:50%;
+
+    background:var(--green);
+
+    box-shadow:
+        0 0 30px var(--green),
+        0 0 70px var(--green),
+        0 0 120px rgba(0,255,157,.7);
+
+    animation:pulse 2s infinite alternate;
+}
+
+@keyframes pulse{
+
+    from{
+        transform:scale(.7);
+        opacity:.7;
+    }
+
+    to{
+        transform:scale(1.1);
+        opacity:1;
+    }
+}
+
+.f1{
+    transform:translateZ(115px);
+}
+
+.f2{
+    transform:rotateY(180deg) translateZ(115px);
+}
+
+.f3{
+    transform:rotateY(90deg) translateZ(115px);
+}
+
+.f4{
+    transform:rotateY(-90deg) translateZ(115px);
+}
+
+.f5{
+    transform:rotateX(90deg) translateZ(115px);
+}
+
+.f6{
+    transform:rotateX(-90deg) translateZ(115px);
+}
+
+/* RINGS */
+
+.ring{
+    position:absolute;
+
+    border:1px solid var(--green);
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 15px rgba(0,255,157,.3);
+
+    transform-style:preserve-3d;
+}
+
+.ring1{
+    width:330px;
+    height:330px;
+
+    left:60px;
+    top:60px;
+
+    transform:rotateX(70deg);
+
+    animation:ring1 8s linear infinite;
+}
+
+.ring2{
+    width:380px;
+    height:380px;
+
+    left:35px;
+    top:35px;
+
+    transform:rotateY(70deg);
+
+    animation:ring2 10s linear infinite reverse;
+}
+
+.ring3{
+    width:410px;
+    height:410px;
+
+    left:20px;
+    top:20px;
+
+    transform:rotateX(55deg) rotateY(30deg);
+
+    animation:ring3 13s linear infinite;
+}
+
+@keyframes ring1{
+
+    to{
+        transform:
+            rotateX(70deg)
+            rotateZ(360deg);
+    }
+}
+
+@keyframes ring2{
+
+    to{
+        transform:
+            rotateY(70deg)
+            rotateX(360deg);
+    }
+}
+
+@keyframes ring3{
+
+    to{
+        transform:
+            rotateX(415deg)
+            rotateY(390deg);
+    }
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    margin:0 7%;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    padding:35px;
+
+    background:var(--glass);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.5);
+}
+
+.stat{
+    text-align:center;
+
+    border-right:1px solid rgba(255,255,255,.08);
+}
+
+.stat:last-child{
+    border:none;
+}
+
+.stat h2{
+    color:var(--green);
+
+    font-size:32px;
+
+    text-shadow:0 0 20px rgba(0,255,157,.4);
+}
+
+.stat p{
+    color:#666;
+
+    font-size:9px;
+
+    margin-top:8px;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+    padding:140px 7%;
+}
+
+.label{
+    color:var(--green);
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    margin-bottom:20px;
+}
+
+.title{
+    font-size:clamp(40px,6vw,75px);
+
+    line-height:.95;
+
+    margin-bottom:60px;
+
+    text-shadow:
+        4px 4px 0 #052619;
+}
+
+/* =========================
+   5D CARDS
+========================= */
+
+.cards{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:30px;
+
+    perspective:1500px;
+}
+
+.card{
+    min-height:330px;
+
+    padding:40px;
+
+    position:relative;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.015)
+        );
+
+    backdrop-filter:blur(15px);
+
+    transform-style:preserve-3d;
+
+    transition:.5s;
+
+    box-shadow:
+        20px 30px 60px rgba(0,0,0,.45);
+}
+
+.card:hover{
+    transform:
+        rotateX(8deg)
+        rotateY(-8deg)
+        translateZ(40px)
+        translateY(-15px);
+
+    border-color:var(--green);
+
+    box-shadow:
+        0 0 30px rgba(0,255,157,.12),
+        25px 40px 80px rgba(0,0,0,.7);
+}
+
+.card-number{
+    font-size:50px;
+
+    color:rgba(0,255,157,.12);
+
+    font-weight:900;
+
+    position:absolute;
+
+    top:20px;
+    right:25px;
+}
+
+.icon{
+    width:65px;
+    height:65px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--green);
+
+    color:var(--green);
+
+    margin-bottom:50px;
+
+    transform:translateZ(50px);
+
+    box-shadow:
+        0 0 20px rgba(0,255,157,.1);
+}
+
+.card h3{
+    font-size:21px;
+
+    margin-bottom:18px;
+
+    transform:translateZ(40px);
+}
+
+.card p{
+    color:#777;
+
+    font-family:Arial,sans-serif;
+
+    line-height:1.7;
+
+    font-size:14px;
+
+    transform:translateZ(30px);
+}
+
+/* =========================
+   MEMBERSHIP
+========================= */
+
+.membership{
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(0,255,157,.08),
+            transparent 50%
+        );
+}
+
+.plans{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:30px;
+}
+
+.plan{
+    padding:45px 30px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.035);
+
+    transition:.5s;
+
+    transform-style:preserve-3d;
+}
+
+.plan:hover{
+    transform:
+        translateY(-15px)
+        rotateX(5deg);
+}
+
+.plan.featured{
+    border-color:var(--green);
+
+    box-shadow:
+        0 0 35px rgba(0,255,157,.1);
+}
+
+.plan h3{
+    color:var(--green);
+
+    font-size:15px;
+}
+
+.price{
+    font-size:55px;
+
+    font-weight:900;
+
+    margin:25px 0;
+}
+
+.price span{
+    font-size:10px;
+
+    color:#555;
+}
+
+.plan ul{
+    list-style:none;
+
+    margin-bottom:30px;
+}
+
+.plan li{
+    color:#888;
+
+    font-family:Arial,sans-serif;
+
+    padding:12px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.plan li::before{
+    content:"◆";
+
+    color:var(--green);
+
+    font-size:8px;
+
+    margin-right:12px;
+}
+
+.plan-button{
+    display:block;
+
+    text-align:center;
+
+    padding:15px;
+
+    border:1px solid var(--green);
+
+    color:var(--green);
+
+    text-decoration:none;
+
+    font-size:10px;
+
+    transition:.3s;
+}
+
+.plan-button:hover{
+    background:var(--green);
+
+    color:#000;
+
+    box-shadow:
+        0 0 25px rgba(0,255,157,.4);
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    margin:80px 7%;
+
+    padding:120px 30px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    border:1px solid rgba(0,255,157,.2);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,255,157,.12),
+            rgba(0,0,0,.5)
+        );
+
+    box-shadow:
+        inset 0 0 80px rgba(0,255,157,.03),
+        0 40px 100px rgba(0,0,0,.5);
+}
+
+.cta h2{
+    font-size:clamp(40px,7vw,90px);
+
+    line-height:.9;
+}
+
+.cta h2 span{
+    color:var(--green);
+
+    text-shadow:
+        0 0 20px var(--green),
+        0 0 50px rgba(0,255,157,.4);
+}
+
+.cta p{
+    max-width:550px;
+
+    margin:25px auto 35px;
+
+    color:#777;
+
+    font-family:Arial,sans-serif;
+
+    line-height:1.7;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:35px 7%;
+
+    display:flex;
+    justify-content:space-between;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    color:#444;
+
+    font-size:9px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    nav{
+        display:none;
+    }
+
+    .hero{
+        flex-direction:column;
+
+        text-align:center;
+
+        padding-top:150px;
+    }
+
+    .hero-description{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .core-container{
+        transform:scale(.72);
+
+        margin-top:20px;
+    }
+
+    .stats{
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:25px;
+    }
+
+    .stat:nth-child(2){
+        border:none;
+    }
+
+    .cards,
+    .plans{
+        grid-template-columns:1fr;
+    }
+
+    footer{
+        flex-direction:column;
+
+        gap:15px;
+
+        text-align:center;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="grid"></div>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header>
+
+    <div class="logo">
+        5D<span>FIT</span>
+    </div>
+
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#programs">PROGRAMS</a>
+        <a href="#membership">MEMBERSHIP</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+
+    <a href="#membership" class="nav-button">
+        JOIN NOW
+    </a>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            NEXT DIMENSION FITNESS
+        </div>
+
+        <h1>
+            TRAIN<br>
+            BEYOND<br>
+            <span>LIMITS.</span>
+        </h1>
+
+        <p class="hero-description">
+            Welcome to the future of fitness.
+            Experience immersive training, advanced
+            equipment and a community built for people
+            who want to become stronger every day.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#membership" class="primary">
+                ENTER THE GYM →
+            </a>
+
+            <a href="#programs" class="secondary">
+                EXPLORE PROGRAMS
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- 5D CORE -->
+
+    <div class="core-container">
+
+        <div class="ring ring1"></div>
+        <div class="ring ring2"></div>
+        <div class="ring ring3"></div>
+
+        <div class="core">
+
+            <div class="core-face f1"></div>
+            <div class="core-face f2"></div>
+            <div class="core-face f3"></div>
+            <div class="core-face f4"></div>
+            <div class="core-face f5"></div>
+            <div class="core-face f6"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<div class="stats">
+
+    <div class="stat">
+        <h2>10K+</h2>
+        <p>MEMBERS</p>
+    </div>
+
+    <div class="stat">
+        <h2>25+</h2>
+        <p>EXPERT COACHES</p>
+    </div>
+
+    <div class="stat">
+        <h2>50+</h2>
+        <p>WEEKLY CLASSES</p>
+    </div>
+
+    <div class="stat">
+        <h2>24/7</h2>
+        <p>ACCESS</p>
+    </div>
+
+</div>
+
+
+<!-- =========================
+     PROGRAMS
+========================= -->
+
+<section class="section" id="programs">
+
+    <div class="label">
+        THE TRAINING SYSTEM
+    </div>
+
+    <h2 class="title">
+        CHOOSE YOUR<br>
+        DIMENSION.
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-number">
+                01
+            </div>
+
+            <div class="icon">
+                POWER
+            </div>
+
+            <h3>
+                SUPER STRENGTH
+            </h3>
+
+            <p>
+                Build raw power with progressive resistance
+                training, advanced equipment and structured
+                strength programs.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-number">
+                02
+            </div>
+
+            <div class="icon">
+                HIIT
+            </div>
+
+            <h3>
+                HYPER CONDITIONING
+            </h3>
+
+            <p>
+                High-intensity training designed to increase
+                endurance, speed, explosiveness and overall
+                athletic performance.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-number">
+                03
+            </div>
+
+            <div class="icon">
+                PRO
+            </div>
+
+            <h3>
+                ELITE PHYSIQUE
+            </h3>
+
+            <p>
+                Transform your physique with personalized
+                bodybuilding programs and professional coaching.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MEMBERSHIP
+========================= -->
+
+<section class="section membership" id="membership">
+
+    <div class="label">
+        MEMBERSHIP SYSTEM
+    </div>
+
+    <h2 class="title">
+        SELECT YOUR<br>
+        LEVEL.
+    </h2>
+
+    <div class="plans">
+
+        <div class="plan">
+
+            <h3>CORE</h3>
+
+            <div class="price">
+                $29
+                <span>/MONTH</span>
+            </div>
+
+            <ul>
+                <li>Gym access</li>
+                <li>Locker access</li>
+                <li>Fitness assessment</li>
+                <li>Training application</li>
+            </ul>
+
+            <a href="#contact" class="plan-button">
+                SELECT
+            </a>
+
+        </div>
+
+
+        <div class="plan featured">
+
+            <h3>QUANTUM</h3>
+
+            <div class="price">
+                $59
+                <span>/MONTH</span>
+            </div>
+
+            <ul>
+                <li>24/7 gym access</li>
+                <li>All group classes</li>
+                <li>Personal training</li>
+                <li>Nutrition consultation</li>
+            </ul>
+
+            <a href="#contact" class="plan-button">
+                SELECT
+            </a>
+
+        </div>
+
+
+        <div class="plan">
+
+            <h3>INFINITE</h3>
+
+            <div class="price">
+                $99
+                <span>/MONTH</span>
+            </div>
+
+            <ul>
+                <li>Unlimited gym access</li>
+                <li>Unlimited classes</li>
+                <li>Weekly PT sessions</li>
+                <li>Custom nutrition plan</li>
+            </ul>
+
+            <a href="#contact" class="plan-button">
+                SELECT
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta" id="contact">
+
+    <h2>
+        ENTER THE<br>
+        <span>FUTURE.</span>
+    </h2>
+
+    <p>
+        One body. One mind. Infinite potential.
+        Your next level starts now.
+    </p>
+
+    <a href="mailto:hello@5dfit.com" class="primary">
+        START YOUR JOURNEY →
+    </a>
+
+</section>
+
+
+<footer>
+
+    <div>
+        © 2026 5DFIT FITNESS
+    </div>
+
+    <div>
+        TRAIN • EVOLVE • TRANSCEND
+    </div>
+
+</footer>
+
+
+<script>
+
+/* ==================================
+   INTERACTIVE PARTICLE SYSTEM
+================================== */
+
+const canvas = document.getElementById("particles");
+
+const ctx = canvas.getContext("2d");
+
+let particles = [];
+
+function resize(){
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+}
+
+resize();
+
+window.addEventListener("resize",resize);
+
+
+class Particle{
+
+    constructor(){
+
+        this.x = Math.random()*canvas.width;
+        this.y = Math.random()*canvas.height;
+
+        this.z = Math.random()*1000;
+
+        this.size = Math.random()*2+0.5;
+
+        this.speed = Math.random()*2+0.5;
+
+    }
+
+    update(){
+
+        this.z -= this.speed;
+
+        if(this.z <= 0){
+
+            this.z = 1000;
+
+            this.x = Math.random()*canvas.width;
+            this.y = Math.random()*canvas.height;
+
+        }
+
+    }
+
+    draw(){
+
+        const scale = 500 / this.z;
+
+        const x =
+            (this.x-canvas.width/2)
+            * scale
+            + canvas.width/2;
+
+        const y =
+            (this.y-canvas.height/2)
+            * scale
+            + canvas.height/2;
+
+        const size =
+            this.size * scale;
+
+        ctx.beginPath();
+
+        ctx.arc(
+            x,
+            y,
+            size,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fillStyle =
+            `rgba(0,255,157,${1-scale/2})`;
+
+        ctx.fill();
+
+    }
+
+}
+
+
+for(let i=0;i<350;i++){
+
+    particles.push(
+        new Particle()
+    );
+
+}
+
+
+function animate(){
+
+    ctx.fillStyle="rgba(2,5,6,.25)";
+
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    particles.forEach(p=>{
+
+        p.update();
+        p.draw();
+
+    });
+
+    requestAnimationFrame(animate);
+
+}
+
+animate();
+
+
+/* ==================================
+   MOUSE PARALLAX
+================================== */
+
+const hero =
+    document.querySelector(".hero");
+
+const content =
+    document.querySelector(".hero-content");
+
+const core =
+    document.querySelector(".core-container");
+
+
+document.addEventListener("mousemove",(e)=>{
+
+    const x =
+        (e.clientX/window.innerWidth-.5);
+
+    const y =
+        (e.clientY/window.innerHeight-.5);
+
+
+    content.style.transform = `
+        translate3d(
+            ${x*-15}px,
+            ${y*-15}px,
+            80px
+        )
+        rotateY(${x*4}deg)
+        rotateX(${y*-4}deg)
+    `;
+
+
+    core.style.transform = `
+        rotateY(${x*12}deg)
+        rotateX(${y*-12}deg)
+    `;
+
+});
+
+
+/* ==================================
+   3D CARD MOUSE EFFECT
+================================== */
+
+document.querySelectorAll(".card")
+.forEach(card=>{
+
+    card.addEventListener("mousemove",(e)=>{
+
+        const rect =
+            card.getBoundingClientRect();
+
+        const x =
+            e.clientX-rect.left;
+
+        const y =
+            e.clientY-rect.top;
+
+        const centerX =
+            rect.width/2;
+
+        const centerY =
+            rect.height/2;
+
+        const rotateX =
+            (y-centerY)/15;
+
+        const rotateY =
+            (centerX-x)/15;
+
+        card.style.transform = `
+            perspective(1000px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+            translateY(-12px)
+            translateZ(30px)
+        `;
+
+    });
+
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.transform="";
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
 ```
